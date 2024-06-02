@@ -11,6 +11,11 @@ public class Flight {
         segments = segs;
     }
 
+    public List<Segment> getSegments() {
+        return segments;
+    }
+
+
     public int IntervalTime() {
         List<Segment> segmentsList = getSegments();
         int sum = 0;
@@ -19,10 +24,6 @@ public class Flight {
             sum += between;
         }
         return (int) sum;
-    }
-
-    public List<Segment> getSegments() {
-        return segments;
     }
 
     @Override

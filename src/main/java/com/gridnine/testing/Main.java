@@ -6,6 +6,7 @@ import com.gridnine.testing.service.impl.ArrivalEarlierDeparture;
 import com.gridnine.testing.service.impl.DepartureUntilNow;
 import com.gridnine.testing.service.impl.IntervalMoreTwoHours;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -14,13 +15,20 @@ public class Main {
         List<Flight> testingFlights = FlightBuilder.createFlights();
 
         System.out.println("-----------------");
-        System.out.println("Вылет до текущего момента времени.");
-        System.out.println(testingFlights = new DepartureUntilNow().filter(testingFlights));
+        System.out.println("Список полетов после исключения вылетов до текущего момента времени.");
+        DepartureUntilNow departureUntilNow = new DepartureUntilNow();
+        System.out.println(departureUntilNow.filter(testingFlights));
+
         System.out.println("-----------------");
-        System.out.println("Сегменты с датой прилёта раньше даты вылета");
-        System.out.println(testingFlights = new ArrivalEarlierDeparture().filter(testingFlights));
+        System.out.println("Список полетов после исключения сегментов с датой прилёта раньше даты вылета");
+        ArrivalEarlierDeparture arrivalEarlierDeparture = new ArrivalEarlierDeparture();
+        System.out.println(arrivalEarlierDeparture.filter(testingFlights));
+
+
         System.out.println("-----------------");
-        System.out.println("Перелеты, где общее время, проведённое на земле, превышает два часа");
-        System.out.println(testingFlights = new IntervalMoreTwoHours().filter(testingFlights));
+        System.out.println("Список полетов, после исключения полетов где общее время, проведённое на земле, превышает два часа");
+        IntervalMoreTwoHours intervalMoreTwoHours = new IntervalMoreTwoHours();
+        System.out.println(intervalMoreTwoHours.filter(testingFlights));
+
     }
 }
