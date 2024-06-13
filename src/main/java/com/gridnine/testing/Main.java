@@ -6,14 +6,14 @@ import com.gridnine.testing.service.impl.ArrivalEarlierDeparture;
 import com.gridnine.testing.service.impl.DepartureUntilNow;
 import com.gridnine.testing.service.impl.IntervalMoreTwoHours;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
         List<Flight> testingFlights = FlightBuilder.createFlights();
-
+        System.out.println("-----------------");
+        System.out.println(testingFlights);
         System.out.println("-----------------");
         System.out.println("Список полетов после исключения вылетов до текущего момента времени.");
         DepartureUntilNow departureUntilNow = new DepartureUntilNow();
